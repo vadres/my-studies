@@ -34,25 +34,17 @@ func Edge() (string, bool) {
 		xp, op = 0, 0
 	}
 
-	if board[2][2] == "o" &&
-		board[1][1] == "o" &&
-		board[0][0] == "o" {
+	if diag(board, "0") {
 		return "o", true
 	}
-	if board[2][2] == "x" &&
-		board[1][1] == "x" &&
-		board[0][0] == "x" {
+	if diag(board, "x") {
 		return "x", true
 	}
 
-	if board[2][0] == "o" &&
-		board[1][1] == "o" &&
-		board[0][2] == "o" {
+	if opositeDiag(board, "o") {
 		return "o", true
 	}
-	if board[2][0] == "x" &&
-		board[1][1] == "x" &&
-		board[0][2] == "x" {
+	if opositeDiag(board, "x") {
 		return "x", true
 	}
 
@@ -64,4 +56,16 @@ func plusDecrease(cond bool, toPlus, toDecrease *int) {
 		*toPlus++
 		*toDecrease--
 	}
+}
+
+func diag(board [][]string, s string) bool {
+	return board[2][2] == s &&
+		board[1][1] == s &&
+		board[0][0] == s
+}
+
+func opositeDiag(board [][]string, s string) bool {
+	return board[2][0] == s &&
+		board[1][1] == s &&
+		board[0][2] == s
 }
