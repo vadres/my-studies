@@ -34,7 +34,7 @@ func Edge() (string, bool) {
 		xp, op = 0, 0
 	}
 
-	if diag(board, "0") {
+	if diag(board, "o") {
 		return "o", true
 	}
 	if diag(board, "x") {
