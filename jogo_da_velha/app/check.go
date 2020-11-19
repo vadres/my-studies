@@ -41,13 +41,6 @@ func Edge() (string, bool) {
 		return "x", true
 	}
 
-	if opositeDiag(board, "o") {
-		return "o", true
-	}
-	if opositeDiag(board, "x") {
-		return "x", true
-	}
-
 	return "", false
 }
 
@@ -59,13 +52,10 @@ func plusDecrease(cond bool, toPlus, toDecrease *int) {
 }
 
 func diag(board [][]string, s string) bool {
-	return board[2][2] == s &&
+	return (board[2][2] == s &&
 		board[1][1] == s &&
-		board[0][0] == s
-}
-
-func opositeDiag(board [][]string, s string) bool {
-	return board[2][0] == s &&
-		board[1][1] == s &&
-		board[0][2] == s
+		board[0][0] == s) ||
+		(board[2][0] == s &&
+			board[1][1] == s &&
+			board[0][2] == s)
 }
