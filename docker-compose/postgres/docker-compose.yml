@@ -1,0 +1,9 @@
+version: "3.9"
+
+services:
+  dc-postgres:
+    image: "postgres:latest"
+    ports:
+      - "${PORT_EXT}:${PORT_CON}"
+    volumes:
+      - ~/dev/PostgreSQL:/var/lib/postgresql/data
